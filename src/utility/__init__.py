@@ -1,14 +1,34 @@
-import calendar
-import time
+"""
+@author:  Zimon Kuhs.
+@date:    2021-07-08.
+"""
 
-LIMIT = 10
+import os
+import random
 
-def secondsToDayTime(epochSeconds) :
-    days, seconds = divmod(epochSeconds, 24 * 60 * 60)
-    hours, seconds = divmod(seconds, 60 * 60)
-    minutes, seconds = divmod(seconds, 60)
-    return [days, hours, minutes, seconds]
+ALPHA = [chr(i) for i in range(128)
+         if i > 65 and i < 91 or i > 97 and i < 122]
+ALPHA_LENGTH = len(ALPHA)
 
-if __name__ == "__main__" :
-    today = secondsToDayTime(calendar.timegm(0) - int(time.time()))
-    print("%d - %d:%d:%d" % (today[0], today[1], today[2], today[3]))
+def absolutePath(filePath, relativePath):
+    return os.path.join(os.path.dirname(filePath), relativePath)
+
+"""
+    Retrieves all of the alphabetic characters in the ASCII table.
+    
+    @return: all alphabetic characters.
+"""
+def alphabeticCharacters():
+    return ALPHA.copy()
+
+"""
+    Generates a random string.
+    
+    @param length  The character length of the string to generate.
+    @return        A randomized word.
+"""
+def randomWord(length):
+    result = ""
+    for _ in range(0, length):
+        result += ALPHA[random.randint(0, ALPHA_LENGTH - 1)]
+    return result
