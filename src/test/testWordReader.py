@@ -17,9 +17,9 @@ class TestWordReader(unittest.TestCase):
     """
         This test class reads the word file separately to cover the case where
         language.wordReader itself would be reading it erroneously.
-        
+
         Attributes:
-            amount(int):  The number of words in the dictionary.   
+            amount(int):  The number of words in the dictionary.
             words (list): The dictionary's words.
     """
     with open(absolutePath(__file__, "../language/data/words.json")) as file:
@@ -31,7 +31,7 @@ class TestWordReader(unittest.TestCase):
 
     """
         Verify positive cases for isWord(str).
-        
+
         Implicitly tests that wordReader can read its base file.
     """
     def testIsWord(self):
@@ -49,8 +49,7 @@ class TestWordReader(unittest.TestCase):
             nonWord = randomWord(random.randint(1, 25))
 
             if nonWord not in self.words:
-                print(nonWord)
-                x = x + 1
+                x += 1
                 self.assertFalse(reader.isWord(nonWord), "%s was erroneously identified as a word." % str)
 
 if __name__ == "__main__":

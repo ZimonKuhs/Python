@@ -15,7 +15,7 @@ def absolutePath(filePath, relativePath):
 
 """
     Retrieves all of the alphabetic characters in the ASCII table.
-    
+
     @return: all alphabetic characters.
 """
 def alphabeticCharacters():
@@ -23,7 +23,7 @@ def alphabeticCharacters():
 
 """
     Generates a random string.
-    
+
     @param length  The character length of the string to generate.
     @return        A randomized word.
 """

@@ -13,7 +13,7 @@ with open(JSON_FILE) as file:
 
 """
     Checks whether a string is a word or not.
-    
+
     @param word    The string to check.
 """
 def isWord(word):
