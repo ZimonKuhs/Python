@@ -15,8 +15,8 @@ alphaNumericLength = len(alphaNumeric)
 
 class TestWordReader(unittest.TestCase):
     """
-        This test class reads the word file separately to cover the case where
-        language.wordReader itself would be reading it erroneously.
+        This test class reads the word file separately to cover the case where language.wordReader itself would be
+        reading it erroneously.
 
         Attributes:
             amount(int):  The number of words in the dictionary.
@@ -39,8 +39,8 @@ class TestWordReader(unittest.TestCase):
             self.assertTrue(reader.isWord(word), "%s was erroneously identified as a non-word." % word)
 
     """
-        As the amount of possible non-word strings is infinite, this test
-        utilizes randomly generated strings as a monkey test.
+        As the amount of possible non-word strings is infinite, this test utilizes randomly generated strings
+        (only alphabetical characters) as a monkey test.
     """
     def testNotWords(self):
         x = 0
@@ -65,29 +65,29 @@ class TestWordReader(unittest.TestCase):
 
         Also checks for expected behavior when other string is empty.
     """
-    def testSubsetOf(self):
-        self.assertTrue(reader.isSubsetOf("clam", "calamity"))
-        self.assertTrue(reader.isSubsetOf("stressed", "desserts"))
-        self.assertTrue(reader.isSubsetOf("iniquity", "abiiinquty"))
-        self.assertFalse(reader.isSubsetOf("malpractice", "acclaimer"))
-        self.assertFalse(reader.isSubsetOf("tuners", "conquest"))
-        self.assertFalse(reader.isSubsetOf("barking", "parking"))
-        self.assertFalse(reader.isSubsetOf("barking", "aagnikra"))
+    def testIsAnagram(self):
+        self.assertTrue(reader.isAnagram("clam", "calamity"))
+        self.assertTrue(reader.isAnagram("stressed", "desserts"))
+        self.assertTrue(reader.isAnagram("iniquity", "abiiinquty"))
+        self.assertFalse(reader.isAnagram("malpractice", "acclaimer"))
+        self.assertFalse(reader.isAnagram("tuners", "conquest"))
+        self.assertFalse(reader.isAnagram("barking", "parking"))
+        self.assertFalse(reader.isAnagram("barking", "aagnikra"))
 
-        self.assertTrue(reader.isSubsetOf("", "asterisk"))
-        self.assertFalse(reader.isSubsetOf("filler", ""))
+        self.assertTrue(reader.isAnagram("", "asterisk"))
+        self.assertFalse(reader.isAnagram("filler", ""))
 
     """
         Check that the appropriate amount of subset words are collected.
     """
-    def testSubsets(self):
+    def testAnagrams(self):
         self.assertEqual(["g", "gl", "gn", "go", "gol", "gon", "l", "lg", "ln", "lo", "log",
                           "long", "n", "ng", "nl", "no", "nog", "nol", "o", "og", "ol", "on"],
-                          reader.subsets("long"),
+                          reader.anagrams("long"),
                          "Subset mismatch for long.")
-        self.assertEqual(["a"], reader.subsets("a"), "Subset of \"a\" is itself.")
-        self.assertEqual([], reader.subsets("!#%&/()=)}"), "Subsets of \"!#%&/()=)}\" shouldn't exist.")
-        self.assertEqual([], reader.subsets(""), "Subsets of nothing should be nothing.")
+        self.assertEqual(["a"], reader.anagrams("a"), "Subset of \"a\" is itself.")
+        self.assertEqual([], reader.anagrams("!#%&/()=)}"), "Subsets of \"!#%&/()=)}\" shouldn't exist.")
+        self.assertEqual([], reader.anagrams(""), "Subsets of nothing should be nothing.")
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.testName']
