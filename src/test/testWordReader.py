@@ -52,6 +52,43 @@ class TestWordReader(unittest.TestCase):
                 x += 1
                 self.assertFalse(reader.isWord(nonWord), "%s was erroneously identified as a word." % str)
 
+    """
+        Tests the following cases:
+
+        *    Word is subset of other, longer word.
+        *    Word is subset of other, equally long word.
+        *    Word is subset of other, longer, non-word.
+        *    Word is not subset of other, shorter word.
+        *    Word is not subset of other, longer word.
+        *    Word is not subset of other, equally long word.
+        *    Word is not subset of other, equally long, non-word.
+
+        Also checks for expected behavior when other string is empty.
+    """
+    def testSubsetOf(self):
+        self.assertTrue(reader.isSubsetOf("clam", "calamity"))
+        self.assertTrue(reader.isSubsetOf("stressed", "desserts"))
+        self.assertTrue(reader.isSubsetOf("iniquity", "abiiinquty"))
+        self.assertFalse(reader.isSubsetOf("malpractice", "acclaimer"))
+        self.assertFalse(reader.isSubsetOf("tuners", "conquest"))
+        self.assertFalse(reader.isSubsetOf("barking", "parking"))
+        self.assertFalse(reader.isSubsetOf("barking", "aagnikra"))
+
+        self.assertTrue(reader.isSubsetOf("", "asterisk"))
+        self.assertFalse(reader.isSubsetOf("filler", ""))
+
+    """
+        Check that the appropriate amount of subset words are collected.
+    """
+    def testSubsets(self):
+        self.assertEqual(["g", "gl", "gn", "go", "gol", "gon", "l", "lg", "ln", "lo", "log",
+                          "long", "n", "ng", "nl", "no", "nog", "nol", "o", "og", "ol", "on"],
+                          reader.subsets("long"),
+                         "Subset mismatch for long.")
+        self.assertEqual(["a"], reader.subsets("a"), "Subset of \"a\" is itself.")
+        self.assertEqual([], reader.subsets("!#%&/()=)}"), "Subsets of \"!#%&/()=)}\" shouldn't exist.")
+        self.assertEqual([], reader.subsets(""), "Subsets of nothing should be nothing.")
+
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
