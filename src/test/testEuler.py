@@ -9,15 +9,11 @@ import unittest
 class TestEuler(unittest.TestCase):
     """
         This test class runs tests of Project Euler challenges.
-
-        Attributes:
-            amount(int):  The number of words in the dictionary.
-            words (list): The dictionary's words.
     """
     def __init__self(self):
         pass
 
-    def euler11(self):
+    def testEuler11(self):
         matrix = [
                     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
                     [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -41,6 +37,9 @@ class TestEuler(unittest.TestCase):
                     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
         ]
         self.assertEqual(70600674, euler.problem11(matrix))
+
+    def testEuler11BadMatrix(self):
+        self.assertRaises(Exception, euler.problem11, [[1, 2, 3], [1, 2, 3, 4, 5], [1, 2]])
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.testName']
