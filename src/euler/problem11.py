@@ -3,30 +3,44 @@
 @date:    2021-07-09.
 """
 
-import functools
-
-def solve(matrix):
-    verifyMatrix(matrix)
-
-    return max(
-            maxHorizontally(matrix),
-            maxVertically(matrix),
-            maxDiagonally(matrix)
-        )
-
-def maxDiagonally(matrix):
-    return 0
-
-def maxHorizontally(matrix):
-    return 0
-
-def maxVertically(matrix):
-    return 0
+import utility.arrays as arrays
+import sys
 
 """
+    Finds the largest product of a specified amount matrix elements, either column-wise, row-wise, or diagonally.
+    
+    @param matrix   The matrix in which to find the largest product.
+    @param reach    The amount of elements to use when calculating products.
+"""
+def solve(matrix, reach):
+    if arrays.isJagged(matrix):
+        raiseJaggedError(matrix)
+
+    biggest = -sys.maxsize - 1
+    dimension = len(matrix)
+
+    for i in range(0, dimension - reach):
+        for j in range(0, dimension - reach):
+            products = [1, 1, 1, 1]
+
+            for x in range(0, reach):
+                products[0] *= matrix[i + x][j]
+                products[1] *= matrix[i][j + x]
+                products[2] *= matrix[i + x][j + x]
+                products[3] *= matrix[i - x][j + x]
+
+            biggest = max(biggest, max(products))
+
+    return biggest
 
 """
-def verifyMatrix(matrix):
+    Checks that the input matrix is a two-dimensional array.
+    Each *row* which length does not equal the column length (amount of rows) is reported as erroneous.
+
+    @param matrix    The matrix to check.
+    @raise Exception If the input matrix is jagged.
+"""
+def raiseJaggedError(matrix):
     height = len(matrix)
     badRows = {}
 
