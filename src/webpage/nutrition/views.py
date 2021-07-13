@@ -1,3 +1,8 @@
+"""
+@author:  Zimon Kuhs.
+@date:    2021-07-09.
+"""
+
 from django.http import HttpResponse
 
 def nutrition(request):
