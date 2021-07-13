@@ -8,5 +8,5 @@ from . import views
 
 urlpatterns = [
     path("", views.nutrition, name="nutrition"),
-    path("data/", views.data, name="data")
+    path("<str:person_name>/", views.person, name="person")
 ]
