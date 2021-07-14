@@ -19,7 +19,7 @@ class Person(Model):
 class Macros(Model):
     """
         Represents the recommended macronutrient intake for a person.
-        
+
         Attributes:
             label(str):     Label to signify a version of recommendations.
             kCal(float):    Recommended calories.
@@ -52,7 +52,7 @@ class Macros(Model):
     protein = DecimalField(decimal_places = 3, max_digits = 8)
     fiber = DecimalField  (decimal_places = 3, max_digits = 8)
     sugar = DecimalField  (decimal_places = 3, max_digits = 8)
-    
+
     def values(self):
         return {
             "label": self.label,
