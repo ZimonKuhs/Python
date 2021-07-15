@@ -11,5 +11,6 @@ app_name="nutrition"
 urlpatterns = [
     path("", views.index, name="index"),
     path("register/", views.register, name="register"),
-    path("<str:person_name>/", views.person, name="person")
+    path("registerNew/", views.registerNew, name="registerNew"),
+    path("<str:personName>/", views.person, name="person")
 ]

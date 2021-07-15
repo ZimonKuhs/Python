@@ -2,9 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My test page</title>
+    <title>Register User</title>
   </head>
   <body>
-	THIS SHOULD REGISTER.
+	<form action="{% url "nutrition:registerNew" %}" method="post">
+	{% csrf_token %}
+
+	<fieldset>
+	    <legend><h1>Please enter your data:</h1></legend>
+
+	    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+        Name:&emsp;<input type="text" name="person_name" id="person_name"></br>
+		Weight:&ensp;<input type="number" name="person_weight" step="0.01" min="1" max ="1000"/>
+        	<select name="unit" id="unit">
+				<option value="kg">Kilogram</option>
+				<option value="lb">Pound</option>
+			</select><br/>
+
+	</fieldset>
+	<input type="submit" value="Submit">
+	</form>
   </body>
 </html>
