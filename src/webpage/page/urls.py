@@ -6,9 +6,12 @@
 from django.contrib import admin
 from django.urls import include, path
 
+from . import views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
 
-    path("", include("nutrition.urls")),
+    path("", views.gotoIndex),
+    path("index/", views.index),
     path("nutrition/", include("nutrition.urls")),
 ]

@@ -3,7 +3,10 @@
 @date:    2021-07-09.
 """
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 def index(request):
-    return HttpResponse("You shouldn't be here...")
+    return HttpResponse("Hello there.")
+
+def gotoIndex(request):
+    return HttpResponseRedirect("index")
