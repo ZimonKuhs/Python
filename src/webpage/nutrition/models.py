@@ -3,10 +3,7 @@
 @date:    2021-07-13.
 """
 
-import datetime
-
-from django.db.models import CASCADE, Model, ForeignKey, CharField, DateTimeField, DecimalField, IntegerField
-from django.utils import timezone
+from django.db.models import CASCADE, Model, ForeignKey, CharField, DateTimeField, DecimalField
 
 class Person(Model):
     def __str__(self):
@@ -46,16 +43,15 @@ class Macros(Model):
     person = ForeignKey(Person, on_delete = CASCADE)
 
     label = CharField(max_length = 100)
-    kCal = DecimalField   (decimal_places = 3, max_digits = 8)
-    carbs = DecimalField  (decimal_places = 3, max_digits = 8)
-    fat = DecimalField    (decimal_places = 3, max_digits = 8)
-    protein = DecimalField(decimal_places = 3, max_digits = 8)
-    fiber = DecimalField  (decimal_places = 3, max_digits = 8)
-    sugar = DecimalField  (decimal_places = 3, max_digits = 8)
+    kCal = DecimalField   (decimal_places = 2, max_digits = 8)
+    carbs = DecimalField  (decimal_places = 2, max_digits = 8)
+    fat = DecimalField    (decimal_places = 2, max_digits = 8)
+    protein = DecimalField(decimal_places = 2, max_digits = 8)
+    fiber = DecimalField  (decimal_places = 2, max_digits = 8)
+    sugar = DecimalField  (decimal_places = 2, max_digits = 8)
 
     def values(self):
         return {
-            "label": self.label,
             "kCal": self.kCal,
             "carbs": self.carbs,
             "fat": self.fat,
@@ -63,22 +59,3 @@ class Macros(Model):
             "fiber": self.fiber,
             "sugar": self.sugar
         }
-
-class Question(Model):
-
-    def __str__(self):
-        return self.question_text
-
-    def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days = 1)
-
-    question_text = CharField(max_length = 200)
-    pub_date = DateTimeField("date published")
-
-class Choice(Model):
-    def __str__(self):
-        return self.choice_text
-
-    question = ForeignKey(Question, on_delete = CASCADE)
-    choice_text = CharField(max_length = 200)
-    votes = IntegerField(default = 0)

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+ 
+ 	{% if macros_set %}
+ 		{% for macros in macros_set %}
+			<table border="1">
+			<colgroup>
+			<col><col align="char" char=".">
+			<thead>
+			<tr><th>{{ macros.label }}</th><th>Amount</th></tr>
+			<tbody>
+			    {% for key, value in macros.values.items %}
+			        <tr><td>{{ key }}</td><td>{{ value|floatformat:-1 }}</td></tr>
+			    {% endfor %}			
+			</tbody>
+			</table>
+		{% endfor %}
+	{% else %}
+	    <p>No macros available.</p>
+	{% endif %}
+  </body>
+</html>

@@ -3,19 +3,24 @@
 @date:    2021-07-09.
 """
 
-from django.http import HttpResponse
-from .models import Macros, Person
+from django.shortcuts import get_object_or_404, render
+from .models import Person
 
 def nutrition(request):
-    return HttpResponse("\"Registration\" goes here.")
+    return render(request, "nutrition/redirect.html", {})
 
 def person(request, person_name):
-    person = Person.objects.get(name=person_name)
-    macros = Macros.objects.get(person_id=person.id)
+    person = get_object_or_404(Person, name=person_name)
+    macros = person.macros_set.all()
 
-    message = "%s<br><br>" % person_name
+    print(macros)
+
+    context = {
+        "name":       person_name,
+        "macros_set": macros
+    }
     
-    for key in macros.values().keys() :
-        message += "%s - %s<br>" % (key, macros.values()[key])
-    
-    return HttpResponse(message)
+    return render(request, "nutrition/macros.html", context)
+
+def register(request):
+    return render(request, "nutrition/register.html", {})
