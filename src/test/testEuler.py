@@ -3,8 +3,10 @@
 @date:    2021-07-09.
 """
 
-import euler
 import unittest
+
+import euler
+
 
 class TestEuler(unittest.TestCase):
     """

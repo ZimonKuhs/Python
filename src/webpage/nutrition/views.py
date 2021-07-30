@@ -9,6 +9,7 @@ from django.utils import timezone
 
 from .models import Macros, Person
 
+
 def index(request):
     return HttpResponseRedirect("register")
 

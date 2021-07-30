@@ -5,7 +5,7 @@
 
 from django.contrib import admin
 
-from .models import Person, Macros
+from .models import Macros, Person
 
 admin.site.register(Person)
 admin.site.register(Macros)

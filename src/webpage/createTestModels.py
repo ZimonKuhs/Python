@@ -9,10 +9,12 @@ TODO:     Remove when redundant?
 """
 
 import django
+
 django.setup()
 
 from django.utils import timezone
-from nutrition.models import Person, Macros
+
+from nutrition.models import Macros, Person
 
 p = Person.objects.create(name = "Z", weight = 85.9, register_date = timezone.now())
 m = Macros.objects.create(

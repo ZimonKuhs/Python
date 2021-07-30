@@ -3,7 +3,9 @@
 @date:    2021-07-13.
 """
 
-from django.db.models import CASCADE, Model, ForeignKey, CharField, DateTimeField, DecimalField
+from django.db.models import (CASCADE, CharField, DateTimeField, DecimalField,
+                              ForeignKey, Model)
+
 
 class Person(Model):
     def __str__(self):

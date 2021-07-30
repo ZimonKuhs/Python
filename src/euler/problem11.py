@@ -3,12 +3,13 @@
 @date:    2021-07-09.
 """
 
-import utility.arrays as arrays
 import sys
+
+import utility.arrays as arrays
 
 """
     Finds the largest product of a specified amount matrix elements, either column-wise, row-wise, or diagonally.
-    
+
     @param matrix   The matrix in which to find the largest product.
     @param reach    The amount of elements to use when calculating products.
 """

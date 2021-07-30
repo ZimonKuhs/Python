@@ -8,6 +8,7 @@ TODO:     Remove when redundant?
 """
 
 import os
+
 import mysql.connector
 
 mydb = mysql.connector.connect(

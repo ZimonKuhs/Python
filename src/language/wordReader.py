@@ -7,6 +7,7 @@ TODO:   Anagram logic should be moved, or wordReader renamed.
 """
 
 import json
+
 from utility import absolutePath
 
 JSON_FILE = absolutePath(__file__, "./data/words.json")
