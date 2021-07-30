@@ -28,6 +28,9 @@ class TestWordReader(unittest.TestCase):
         words = list(json.load(file).keys())
         amount = len(words)
 
+    """
+        Nothing spanning all tests is necessary to set up for the instance.
+    """
     def __init__self(self):
         pass
 

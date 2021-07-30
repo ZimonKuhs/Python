@@ -7,7 +7,11 @@
 
 from django.apps import AppConfig
 
+"""
+    Nutrition application configuration.
 
+    N.B. Purpose currently unclear to the author.
+"""
 class NutritionConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "nutrition"

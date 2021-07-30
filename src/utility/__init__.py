@@ -1,6 +1,10 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-08.
+    Utility package initialization.
+
+    TODO:   Currently contains actual utility methods, which it should not.
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-08.
 """
 
 import os

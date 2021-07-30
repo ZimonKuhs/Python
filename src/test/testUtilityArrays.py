@@ -9,12 +9,13 @@ import unittest
 
 import utility.arrays as arrays
 
-
+"""
+    Verifies that all euler problems are still functional.
+"""
 class TestEuler(unittest.TestCase):
     """
-        This test class runs tests of array utilities.
+        Nothing spanning all tests is necessary to set up for the instance.
     """
-
     def __init__self(self):
         pass
 
