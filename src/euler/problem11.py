@@ -1,6 +1,11 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-09.
+    'Largest Product in a Grid'
+
+    https://projecteuler.net/problem=11
+
+    @author:    Zimon Kuhs.
+    @date:      2021-07-09.
+    @solution:  70600674
 """
 
 import sys

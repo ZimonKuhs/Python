@@ -1,3 +1,10 @@
+"""
+    Application configuration.
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-13.
+"""
+
 from django.apps import AppConfig
 
 

@@ -1,11 +1,11 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-14.
+    Quick test script for creating test person and macros.
+    This is to facilitate synchronizing test databases across development environments.
 
-Quick test script for creating test person and macros.
-This is to facilitate synchronizing test databases across development environments.
+    TODO:     Remove when redundant?
 
-TODO:     Remove when redundant?
+    @author:  Zimon Kuhs.
+    @date:    2021-07-14.
 """
 
 import django

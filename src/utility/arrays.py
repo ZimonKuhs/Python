@@ -1,6 +1,8 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-12.
+    Utility functionality regarding arrays.
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-12.
 """
 
 """

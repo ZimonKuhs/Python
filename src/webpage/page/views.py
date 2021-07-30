@@ -1,6 +1,8 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-09.
+    General view data control.
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-09.
 """
 
 from django.http import HttpResponse, HttpResponseRedirect

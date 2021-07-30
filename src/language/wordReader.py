@@ -1,9 +1,12 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-08.
+    Functions that work against a (currently repository-local) database of words.
 
-TODO:   Anagram logic should be moved, or wordReader renamed.
-        Optimize using sets? I.e. build key->set chains with words' characters.
+    @author:  Zimon Kuhs.
+    @date:    2021-07-08.
+
+    TODO:   1)  Anagram logic should be moved, or wordReader renamed.
+                Optimize using sets? I.e. build key->set chains with words' characters.
+            2)  Outsource word collection to a benevolent database?
 """
 
 import json

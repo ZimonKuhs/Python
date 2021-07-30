@@ -1,10 +1,10 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-13.
+    Quick test script for checking that access to DBs is possible via Python connector.
 
-Quick test script for checking that access to DBs is possible via Python connector.
+    TODO:     Remove when redundant?
 
-TODO:     Remove when redundant?
+    @author:  Zimon Kuhs.
+    @date:    2021-07-13.
 """
 
 import os

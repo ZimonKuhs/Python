@@ -1,6 +1,8 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-09.
+    Test suite for regression testing euler problems.
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-09.
 """
 
 import unittest

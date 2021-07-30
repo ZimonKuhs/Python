@@ -1,6 +1,8 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-09.
+    General URL direction.
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-09.
 """
 
 from django.contrib import admin

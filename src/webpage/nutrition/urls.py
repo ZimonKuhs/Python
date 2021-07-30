@@ -1,6 +1,8 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-09.
+    URL direction for the nutrition application.
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-09.
 """
 
 from django.urls import path

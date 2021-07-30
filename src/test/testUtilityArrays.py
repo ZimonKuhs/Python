@@ -1,6 +1,8 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-12.
+    Regression tests array utility functions.
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-12.
 """
 
 import unittest

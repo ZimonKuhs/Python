@@ -1,6 +1,8 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-13.
+    Models for the Person/Macro-relationship(s).
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-13.
 """
 
 from django.db.models import (CASCADE, CharField, DateTimeField, DecimalField,

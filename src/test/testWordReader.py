@@ -1,6 +1,8 @@
 """
-@author:  Zimon Kuhs.
-@date:    2021-07-08.
+    Regression tests word reader functions.
+
+    @author:  Zimon Kuhs.
+    @date:    2021-07-08.
 """
 
 import json
