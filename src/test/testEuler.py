@@ -20,6 +20,9 @@ class TestEuler(unittest.TestCase):
     def __init__self(self):
         pass
 
+    def testEuler4(self):
+        self.assertEqual(906609, euler.problem4(3))
+
     """
         Verifies Euler#11, using the problem formulation's specified matrix.
     """
@@ -53,6 +56,8 @@ class TestEuler(unittest.TestCase):
     """
     def testEuler11BadMatrix(self):
         self.assertRaises(Exception, euler.problem11, [[1, 2, 3], [1, 2, 3, 4, 5], [1, 2]])
+
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.testName']
