@@ -95,5 +95,4 @@ class TestWordReader(unittest.TestCase):
         self.assertEqual([], reader.anagrams(""), "Subsets of nothing should be nothing.")
 
 if __name__ == "__main__":
-    # import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

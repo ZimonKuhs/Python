@@ -50,5 +50,4 @@ class TestEuler(unittest.TestCase):
                                           "Should be false for dictionaries containing dictionaries.")
 
 if __name__ == "__main__":
-    # import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

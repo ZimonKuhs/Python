@@ -37,9 +37,5 @@ class TestEuler(unittest.TestCase):
         self.assertFalse(strings.isPalindrome([1, 2, 3, 3, 3, 3, 3]))
         self.assertFalse(strings.isPalindrome([1, 2, 3, 4, 3, 2, 1]))
 
-
-
-
 if __name__ == "__main__":
-    # import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
