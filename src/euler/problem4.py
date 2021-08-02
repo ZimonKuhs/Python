@@ -9,9 +9,10 @@
 """
 
 import math
+import sys
 
-from utility.math import math as utilityMath
-from utility.string import string as utilityString
+from utility import math as mathUtility
+from utility import string as stringUtility
 
 #  TODO:   Move to a JSON configuration file.
 THRESHOLD = 5
@@ -25,15 +26,36 @@ THRESHOLD = 5
     @return         The largest palindrome number that is a product of two numbers of the specified length.
 """
 def solve(length):
-    if not utilityMath.isPositiveInteger(length):
+    if not mathUtility.isPositiveInteger(length):
         raise Exception("Input number must be a positive, non-zero integer!")
 
-    if (length > THRESHOLD):
+    if length > THRESHOLD:
         raise Exception("Input number length is too large, %d is the maximum allowed number; %d was supplied." % (THRESHOLD, length))
-
 
     palindromes = findPalindromes(length)
 
-def findPalindromes(digits) {
-    # Check digit length, discard all numbers lower than 10^<digits>.
-}
+    highest = - sys.maxsize
+    for number in palindromes :
+        product = number * number
+        highest = highest if highest >= product else product
+
+    return product
+
+"""
+    Retrieves all palindrome numbers of a specified length.
+
+    * A palindrome number is analogous to a textual palindrome; its sequence is equivalent to its inverted sequence.
+
+    @param digits   The digit length of palindromes to collect.
+    @return         All palindrome numbers of the specified length.
+"""
+def findPalindromes(digits):
+    if digits <= 1 :
+        raise Exception("Can not generate palindromes from numbers shorter than 2 digits! Received request for %d digits.", digits)
+
+    result = []
+    for i in range(10^digits, int(math.pow(10, digits + 1))) :
+        if stringUtility.isPalindrome(i) :
+            result.append(i)
+
+    return result
