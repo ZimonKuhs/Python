@@ -10,7 +10,7 @@ import unittest
 import utility.arrays as arrays
 
 """
-    Verifies that all euler problems are still functional.
+    Regression testing for array utility functionality.
 """
 class TestEuler(unittest.TestCase):
     """
