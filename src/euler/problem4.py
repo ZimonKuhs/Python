@@ -32,12 +32,11 @@ def solve(length):
     if length > THRESHOLD:
         raise Exception("Input number length is too large, %d is the maximum allowed number; %d was supplied." % (THRESHOLD, length))
 
-    palindromes = findPalindromes(length)
-
     highest = - sys.maxsize
-    for number in palindromes :
-        product = number * number
-        highest = highest if highest >= product else product
+    for i in range(1, int(math.pow(10, length))) :
+        product = i * i
+        print(product)
+        highest = product if product > highest and stringUtility.isPalindrome(product) else highest
 
     return product
 
