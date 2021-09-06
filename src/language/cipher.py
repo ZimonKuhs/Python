@@ -36,8 +36,13 @@ def customCipher(word, charFunction, keys) :
     if not isinstance(charFunction, FunctionType) :
         raise Exception("Can only cipher using a character displacement function (got %s)." % type(charFunction))
 
-    if not isinstance(keys, list) or len(keys) <= 0:
-        raise Exception("A list of keys is required in order to cipher a string (got %s)." % keys)
+    if not isinstance(keys, list) :
+        if not isinstance(keys, int) :
+            raise Exception("Either a key integer, or a list of such, is required to cipher a string." % keys)
+
+        keys = [keys]
+    elif len(keys) <= 0:
+        raise Exception("Either a key integer, or a list of such, is required to cipher a string." % keys)
 
     return "".join([charFunction(char, keys) for char in word])
 

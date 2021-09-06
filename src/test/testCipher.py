@@ -76,16 +76,11 @@ class TestCipher(unittest.TestCase):
             cipheredText = cipher.customCipher(originalText, cipherFunction, [i, i + 1])
             self.assertEqual(expectedText, cipheredText, "Failed for key %d." % i)
 
-"""
-    TODO: Implement this test for a key parameter not being a list.
-
-    def testCustomCipherNoKeyList(self):
+    def testCustomCipherOneKey(self):
         originalText = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
         expectedText = "@`AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYy"
 
-        # Note that this function should always shift characters 1 step backwards ASCII-wise.
-        cipherFunction = lambda x, y : chr(ord(x) + y)
+        cipherFunction = lambda x, y : chr(ord(x) + y[0])
 
-        cipheredText = cipher.customCipher(originalText, cipherFunction, 1)
-        self.assertEqual(expectedText, cipheredText, "Failed for key %d." % i)
-"""
+        cipheredText = cipher.customCipher(originalText, cipherFunction, -1)
+        self.assertEqual(expectedText, cipheredText)
