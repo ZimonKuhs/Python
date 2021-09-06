@@ -14,18 +14,9 @@ import euler
 """
 class TestEuler(unittest.TestCase):
 
-    """
-        Nothing spanning all tests is necessary to set up for the instance.
-    """
-    def __init__self(self):
-        pass
-
-    def testEuler4(self):
+    def testEuler4(self) :
         self.assertEqual(906609, euler.problem4(3))
 
-    """
-        Verifies Euler#11, using the problem formulation's specified matrix.
-    """
     def testEuler11(self):
         matrix = [
                     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -56,6 +47,3 @@ class TestEuler(unittest.TestCase):
     """
     def testEuler11BadMatrix(self):
         self.assertRaises(Exception, euler.problem11, [[1, 2, 3], [1, 2, 3, 4, 5], [1, 2]])
-
-if __name__ == "__main__":
-    unittest.main()

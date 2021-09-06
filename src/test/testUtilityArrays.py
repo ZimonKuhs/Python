@@ -14,15 +14,10 @@ import utility.arrays as arrays
 """
 class TestEuler(unittest.TestCase):
     """
-        Nothing spanning all tests is necessary to set up for the instance.
-    """
-    def __init__self(self):
-        pass
-
-    """
         Verifies that the identity method isMatrix(object) behaves correctly for arrays, arrays of arrays,
         and dictionaries.
     """
+
     def testIsMatrix(self):
         self.assertTrue(arrays.isMatrix([[]]), "Should be true for a 1x0 matrix.")
         self.assertTrue(arrays.isMatrix([[0, 0], [0, 0]]), "Should be true for basic example.")
@@ -34,10 +29,6 @@ class TestEuler(unittest.TestCase):
                                           "key2": {"key21": "value21", "key22": "value22"}}),
                                           "Should be false for dictionaries containing dictionaries.")
 
-    """
-        Verifies that the identity method isJagged(object) correctly identifies arrays, arrays of arrays,
-        and dictionaries, as being or not being jagged matrices.
-    """
     def testIsJagged(self):
         self.assertTrue(arrays.isJagged([[0, 0], [0], [0, 0, 0, 0]]), "Should be true for jagged matrices.")
         self.assertTrue(arrays.isJagged([[]]), "Should be true for a 1x0 matrix.")
@@ -48,6 +39,3 @@ class TestEuler(unittest.TestCase):
         self.assertFalse(arrays.isJagged({"key1": {"key11": "value11", "key12": "value12"},
                                           "key2": {"key21": "value21", "key22": "value22"}}),
                                           "Should be false for dictionaries containing dictionaries.")
-
-if __name__ == "__main__":
-    unittest.main()

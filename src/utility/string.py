@@ -20,5 +20,21 @@ def isPalindrome(object) :
     for i in range(0, math.ceil(length / 2)) :
         if asString[i] != asString[length - 1 - i] :
             return False
+    return True
+
+"""
+    Checks whether or not a character is alphabetical.
+
+    @param matrix  The character to check.
+    @return        True if the character is alphabetical.
+"""
+def isAlphaChar(char) :
+
+    if (char < 'A') :
+        return False
+    if (char > 'z') :
+        return False
+    if (char < 'a' and char > 'Z') :
+        return False
 
     return True
