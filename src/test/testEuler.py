@@ -12,6 +12,9 @@ import euler
 
 class TestEuler(unittest.TestCase):
 
+    def testEuler4(self) :
+        self.assertEqual(906609, euler.problem4(3))
+
     def testEuler11(self):
         matrix = [
                     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
