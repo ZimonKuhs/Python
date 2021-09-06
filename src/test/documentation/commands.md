@@ -2,4 +2,4 @@
 
 ## Run tests from terminal.
 
-python -m unittest discover -s tests -t src
+python -m unittest discover -s test -t src

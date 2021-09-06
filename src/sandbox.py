@@ -7,4 +7,9 @@
     @date 2021-09-06
 """
 
-print("Echo.")
+import language.cipher as cipher
+
+text = "I would hesitate, if not at all {0}-wonkiness."
+
+ciphered = cipher.shiftString(text, 5)
+print(cipher.shiftString(ciphered, -5))
