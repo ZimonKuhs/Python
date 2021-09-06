@@ -7,8 +7,9 @@
     @date 2021-09-06
 """
 
-text = ""
-for i in range(0, 26) :
-    text += chr(65 + i) + chr(97 + i)
+import language.cipher as cipher
 
-print(text)
+text = "I would hesitate, if not at all {0}-wonkiness."
+
+ciphered = cipher.shiftString(text, 5)
+print(cipher.shiftString(ciphered, -5))

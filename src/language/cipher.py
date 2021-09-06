@@ -5,15 +5,16 @@
     @date:    2021-08-18.
 """
 
-import sys
+from string import punctuation
+from types import FunctionType
 
 from utility.string import isAlphaChar
 
 """
     Ciphers a string using letter displacemenet via a number.
 
-    @param word     The string to cipher.
-    @return         The randomized list.
+    @param word The string to cipher.
+    @return     The randomized list.
 """
 def caesarCipher(word, key) :
     if not isinstance(word, str) :
@@ -24,19 +25,19 @@ def caesarCipher(word, key) :
 """
     Ciphers a string using a custom conversion function.
 
-    @param word             The string to cipher.
-    @param charFunction     The conversion function.
-    @param keys             The list of keys to use for each character, with the input function.
+    @param word         The string to cipher.
+    @param charFunction The conversion function.
+    @param keys         The list of keys to use for each character, with the input function.
 """
 def customCipher(word, charFunction, keys) :
     if not isinstance(word, str) :
         raise Exception("Can only cipher an instance of string (got %s)." % type(word))
 
-    if not isinstance(charFunction, function) :
+    if not isinstance(charFunction, FunctionType) :
         raise Exception("Can only cipher using a character displacement function (got %s)." % type(charFunction))
 
-    if not isinstance(charFunction, list) or not keys:
-        raise Exception("A dict of keys is required in order to cipher a string (got %s)." % keys)
+    if not isinstance(keys, list) or len(keys) <= 0:
+        raise Exception("A list of keys is required in order to cipher a string (got %s)." % keys)
 
     return "".join([charFunction(char, keys) for char in word])
 
@@ -60,28 +61,16 @@ def shiftChar(char, shift) :
     return chr(base + pos)
 
 """
-    "Shifts" a character a number of steps in the alphabet, wrapping around at the beginning or end.
+    "Shifts" the characters of a textual string a number of steps in the alphabet,
+    wrapping around at the beginning or end.
     <p>
-    Note that captalization is retained.
-    <p>
-    Note that this alternate method exists only because it's fun. It does the same thing as #shiftChar(char, shift)
-    but only uses one line of code; less readability, more styling.
+    Capitalization is retained, as are all punctuation characters.
 
-    TODO: Find a logical place for shenanigans such as these.
+    TODO:   Add ciphering of punctuation, possibly via boolean option.
+            Should such ciphering be separate?
 
     @param char     The character to alter.
     @param shift    The alphabetic alteration of the character.
 """
-def shiftCharOneLine(char, shift) :
-    return char if not isAlphaChar(char) else chr((65 if char < 'a' else 97) + ((ord(char) - (65 if char < 'a' else 97) + shift) % 26))
-
-"""
-    "Shifts" a character a number of steps in the alphabet, wrapping around at the beginning or end.
-    <p>
-    Note that captalization is retained.
-
-    @param char     The character to alter.
-    @param shift    The alphabetic alteration of the character.
-"""
-def shiftString(string, shift) :
-    pass
+def shiftString(text, shift) :
+    return [(char if char in punctuation else shiftChar(char, shift)) for char in text]

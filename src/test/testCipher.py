@@ -46,18 +46,46 @@ class TestCipher(unittest.TestCase):
         This to ensure that keys of greater length makes the shifting wrap around to
         only alphabetical characters.
     """
-    def testCaesar(self):
+
+    def testCaesarCipher(self):
         originalText = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
         expectedText = originalText
 
-        for i in range(0, 52) :
+        for i in range(-52, 52) :
             self.assertEqual(expectedText, cipher.caesarCipher(originalText, i), "Failed for key %d." % i)
             expectedText = expectedText[2:] + expectedText[0:2]
 
-    def testCaesarNegative(self):
+    def testCaesarDecipher(self):
         originalText = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
-        expectedText = originalText
 
-        for i in range(-52, 0) :
-            self.assertEqual(expectedText, cipher.caesarCipher(originalText, i), "Failed for key %d." % i)
-            expectedText = expectedText[2:] + expectedText[0:2]
+        for i in range(-52, 52) :
+            self.assertEqual(
+                originalText,
+                cipher.caesarCipher(cipher.caesarCipher(originalText, i), -i),
+                "Failed for key %d." % i
+            )
+
+    def testCustomCipher(self):
+        originalText = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+        expectedText = "@`AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYy"
+
+        # Note that this function should always shift characters 1 step backwards ASCII-wise.
+        cipherFunction = lambda x, y : chr(ord(x) + y[0] - y[1])
+
+        for i in range(0, 10):
+            cipheredText = cipher.customCipher(originalText, cipherFunction, [i, i + 1])
+            self.assertEqual(expectedText, cipheredText, "Failed for key %d." % i)
+
+"""
+    TODO: Implement this test for a key parameter not being a list.
+
+    def testCustomCipherNoKeyList(self):
+        originalText = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+        expectedText = "@`AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYy"
+
+        # Note that this function should always shift characters 1 step backwards ASCII-wise.
+        cipherFunction = lambda x, y : chr(ord(x) + y)
+
+        cipheredText = cipher.customCipher(originalText, cipherFunction, 1)
+        self.assertEqual(expectedText, cipheredText, "Failed for key %d." % i)
+"""
