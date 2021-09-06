@@ -41,37 +41,3 @@ def customCipher(word, charFunction, keys) :
         raise Exception("A dict of keys is required in order to cipher a string (got %s)." % keys)
 
     return "".join([charFunction(char, keys) for char in word])
-
-
-""" ************************** """
-""" Temporary ciphering place. """
-""" ************************** """
-
-if __name__ == "__main__" :
-    if len(sys.argv) != 2 :
-        print("Usage: python cipher.py <word>")
-        sys.exit(1)
-
-    key1 = 13
-    key2 = 2
-    key3 = -1
-
-    scrambled = scramble(sys.argv[1])
-    newWord = ""
-
-    for i in range(0, len(scrambled)) :
-        digit = ord(scrambled[i]) - 64
-        newDigit = digit + (key1 + pow(key2, i)) * pow(key3, i)
-        newAscii = 65 + newDigit % 25
-        print(newAscii)
-        newWord += chr(newAscii)
-
-    oldWord = ""
-    for i in range(0, len(scrambled)) :
-        ascii = ord(scrambled[i])
-        oldChar = chr(65 + (ascii - (key1 + pow(key2, i)) * pow(key3, i)) % 25)
-        oldWord += oldChar
-
-    print(newWord)
-    print(oldWord)
-    sys.exit(0)
