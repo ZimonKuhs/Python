@@ -32,12 +32,12 @@ def solve():
 """
 
 """
-    Finds the largest product of any two distinct numbers of a specified digit-length.
+    Finds the largest palindrome product of any two distinct numbers of a specified digit-length.
     <p>
     Note that the two factors are <i>not</i> returned, only the product.
 
     @param length   The number of digits of the factors to produce the product.
-    @return         The product of the two distinct factors.
+    @return         A palindrome product of two distinct factors of the specified length.
 """
 def solve(length) :
     pass
