@@ -37,13 +37,20 @@ def solve(length):
     if length > THRESHOLD:
         raise Exception("Input number length is too large, %d is the maximum allowed number; %d was supplied." % (THRESHOLD, length))
 
-    highest = - sys.maxsize
-    for i in range(1, int(math.pow(10, length))) :
-        product = i * i
-        print(product)
-        highest = product if product > highest and stringUtility.isPalindrome(product) else highest
+    highest = - sys.maxsize - 1
+    numbers = range(10**(length - 1), 10**length - 1)
 
-    return product
+    for i in numbers :
+        for j in numbers :
+
+            if i == j :
+                continue
+
+            product = i * j
+
+            highest = product if (product > highest) and stringUtility.isPalindrome(product) else highest
+
+    return highest
 
 """
     Retrieves all palindrome numbers of a specified length.

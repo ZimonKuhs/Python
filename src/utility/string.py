@@ -20,6 +20,7 @@ def isPalindrome(object) :
     for i in range(0, math.ceil(length / 2)) :
         if asString[i] != asString[length - 1 - i] :
             return False
+
     return True
 
 """
