@@ -19,7 +19,7 @@ def caesarCipher(word, key) :
     if not isinstance(word, str) :
         raise Exception("Can only cipher an instance of string (got %s)." % type(word))
 
-    return "".join([shiftChar(char, 25) for char in word])
+    return "".join([shiftChar(char, key) for char in word])
 
 """
     Ciphers a string using a custom conversion function.

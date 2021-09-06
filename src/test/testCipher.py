@@ -12,10 +12,11 @@ import language.cipher as cipher
 
 class TestCipher(unittest.TestCase):
     """
-        This test class runs tests of Project Euler challenges.
+        @attribute upper    All uppercase letters.
+        @attribute lower    All lowercase letters.
     """
-    # upper = [chr(ordinal) for ordinal in range(65, 91)]
-    # lower = [chr(ordinal) for ordinal in range(97, 123)]
+    upper = [chr(ordinal) for ordinal in range(65, 91)]
+    lower = [chr(ordinal) for ordinal in range(97, 123)]
 
     def testShiftChar(self):
         self.assertEqual('A', cipher.shiftChar('A', 0))
@@ -40,5 +41,23 @@ class TestCipher(unittest.TestCase):
         self.assertEqual('B', cipher.shiftChar('A', -25 + 26 * 100))
         self.assertEqual('A', cipher.shiftChar('A', -26 + 26 * 1000))
 
-if __name__ == "__main__":
-    unittest.main()
+    """
+        Tests Caesar cipher with the key being up to twice the length of the alphabet.
+        This to ensure that keys of greater length makes the shifting wrap around to
+        only alphabetical characters.
+    """
+    def testCaesar(self):
+        originalText = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+        expectedText = originalText
+
+        for i in range(0, 52) :
+            self.assertEqual(expectedText, cipher.caesarCipher(originalText, i), "Failed for key %d." % i)
+            expectedText = expectedText[2:] + expectedText[0:2]
+
+    def testCaesarNegative(self):
+        originalText = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+        expectedText = originalText
+
+        for i in range(-52, 0) :
+            self.assertEqual(expectedText, cipher.caesarCipher(originalText, i), "Failed for key %d." % i)
+            expectedText = expectedText[2:] + expectedText[0:2]

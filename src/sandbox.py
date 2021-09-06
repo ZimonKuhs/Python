@@ -7,4 +7,8 @@
     @date 2021-09-06
 """
 
-print("Echo.")
+text = ""
+for i in range(0, 26) :
+    text += chr(65 + i) + chr(97 + i)
+
+print(text)

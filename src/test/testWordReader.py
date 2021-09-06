@@ -10,30 +10,22 @@ import random
 import unittest
 
 from language import wordReader as reader
-from utility import absolutePath, alphabeticCharacters, randomWord
+from utility import absolutePath, randomWord
 
-alphaNumeric = [char for char in (alphabeticCharacters())]
-alphaNumericLength = len(alphaNumeric)
 
 class TestWordReader(unittest.TestCase):
     """
         This test class reads the word file separately to cover the case where language.wordReader itself would be
         reading it erroneously.
 
-        Attributes:
-            amount(int):  The number of words in the dictionary.
-            words (list): The dictionary's words.
+        @attribute amount   The number of words in the dictionary.
+        @attribute words    The dictionary's words.
     """
     with open(absolutePath(__file__, "../language/data/words.json")) as file:
         words = list(json.load(file).keys())
         amount = len(words)
 
-    def __init__self(self):
-        pass
-
     """
-        Verify positive cases for isWord(str).
-
         Implicitly tests that wordReader can read its base file.
     """
     def testIsWord(self):
@@ -83,13 +75,13 @@ class TestWordReader(unittest.TestCase):
         Check that the appropriate amount of subset words are collected.
     """
     def testAnagrams(self):
-        self.assertEqual(["g", "gl", "gn", "go", "gol", "gon", "l", "lg", "ln", "lo", "log",
-                          "long", "n", "ng", "nl", "no", "nog", "nol", "o", "og", "ol", "on"],
-                          reader.anagrams("long"),
-                         "Subset mismatch for long.")
+        self.assertEqual(
+                        ["g", "gl", "gn", "go", "gol", "gon", "l", "lg", "ln", "lo", "log",
+                         "long", "n", "ng", "nl", "no", "nog", "nol", "o", "og", "ol", "on"],
+                        reader.anagrams("long"),
+                        "Subset mismatch for long."
+        )
+
         self.assertEqual(["a"], reader.anagrams("a"), "Subset of \"a\" is itself.")
         self.assertEqual([], reader.anagrams("!#%&/()=)}"), "Subsets of \"!#%&/()=)}\" shouldn't exist.")
         self.assertEqual([], reader.anagrams(""), "Subsets of nothing should be nothing.")
-
-if __name__ == "__main__":
-    unittest.main()

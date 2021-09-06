@@ -11,11 +11,6 @@ import euler
 
 
 class TestEuler(unittest.TestCase):
-    """
-        This test class runs tests of Project Euler challenges.
-    """
-    def __init__self(self):
-        pass
 
     def testEuler11(self):
         matrix = [
@@ -44,6 +39,3 @@ class TestEuler(unittest.TestCase):
 
     def testEuler11BadMatrix(self):
         self.assertRaises(Exception, euler.problem11, [[1, 2, 3], [1, 2, 3, 4, 5], [1, 2]])
-
-if __name__ == "__main__":
-    unittest.main()
