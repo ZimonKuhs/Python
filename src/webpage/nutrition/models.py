@@ -8,7 +8,9 @@
 from django.db.models import (CASCADE, CharField, DateTimeField, DecimalField,
                               ForeignKey, Model)
 
-
+"""
+    Represents a person utilizing the nutrition application.
+"""
 class Person(Model):
     def __str__(self):
         return self.name
@@ -17,6 +19,9 @@ class Person(Model):
     register_date = DateTimeField("Date registered.")
     weight = DecimalField(decimal_places = 3, max_digits = 7)
 
+"""
+    Represents a potential macronutrient distribution, tied to a user.
+"""
 class Macros(Model):
     """
         Represents the recommended macronutrient intake for a person.
@@ -65,7 +70,7 @@ class Macros(Model):
         )
 
     def __str__(self):
-        return str(values())
+        return str(self.values())
 
     def values(self):
         return {

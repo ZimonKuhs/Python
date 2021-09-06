@@ -9,8 +9,14 @@ import unittest
 
 import utility.arrays as arrays
 
-
+"""
+    Regression testing for array utility functionality.
+"""
 class TestEuler(unittest.TestCase):
+    """
+        Verifies that the identity method isMatrix(object) behaves correctly for arrays, arrays of arrays,
+        and dictionaries.
+    """
 
     def testIsMatrix(self):
         self.assertTrue(arrays.isMatrix([[]]), "Should be true for a 1x0 matrix.")

@@ -9,7 +9,9 @@ import unittest
 
 import euler
 
-
+"""
+    This test class runs tests of Project Euler challenges.
+"""
 class TestEuler(unittest.TestCase):
 
     def testEuler4(self) :
@@ -40,5 +42,8 @@ class TestEuler(unittest.TestCase):
         ]
         self.assertEqual(70600674, euler.problem11(matrix, 4))
 
+    """
+        Checks that Euler#11 rejects jagged matrices.
+    """
     def testEuler11BadMatrix(self):
         self.assertRaises(Exception, euler.problem11, [[1, 2, 3], [1, 2, 3, 4, 5], [1, 2]])

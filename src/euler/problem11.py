@@ -17,6 +17,7 @@ import utility.arrays as arrays
 
     @param matrix   The matrix in which to find the largest product.
     @param reach    The amount of elements to use when calculating products.
+    @return         The largest product of a set of numbers, within a specified reach in either uniform matrix direction.
 """
 def solve(matrix, reach):
     if arrays.isJagged(matrix):
