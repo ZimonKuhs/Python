@@ -1,0 +1,16 @@
+Normal Fighting Flying Poison Ground Rock Bug Ghost Fire Water Grass Electric Psychic Ice Dragon
+Normal 1x 1x 1x 1x 1x 1/2x 1x 0x 1x 1x 1x 1x 1x 1x 1x
+Fighting 2x 1x 1/2x 1/2x 1x 2x 1/2x 0x 1x 1x 1x 1x 1/2x 2x 1x
+Flying 1x 2x 1x 1x 1x 1/2x 2x 1x 1x 1x 2x 1/2x 1x 1x 1x
+Poison 1x 1x 1x 1/2x 1/2x 1/2X 2x 1/2x 1x 1x 2x 1x 1x 1x 1x
+Ground 1x 1x 0x 2x 1x 2x 1/2x 1x 2x 1x 1/2x 2x 1x 1x 1x
+Rock 1x 1/2x 2x 1x 1/2x 1x 2x 1x 2x 1x 1x 1x 1x 2x 1x
+Bug 1x 1/2x 1/2x 2x 1x 1x 1x 1/2x 1/2x 1x 2x 1x 2x 1x 1x
+Ghost 0x 1x 1x 1x 1x 1x 1x 2x 1x 1x 1x 1x 0x 1x 1x
+Fire 1x 1x 1x 1x 1x 1/2x 2x 1x 1/2x 1/2x 2x 1x 1x 2x 1/2x
+Water 1x 1x 1x 1x 2x 2x 1x 1x 2x 1/2x 1/2x 1x 1x 1x 1/2x
+Grass 1x 1x 1/2x 1/2x 2x 2x 1/2x 1x 1/2x 2x 1/2x 1x 1x 1x 1/2x
+Electric 1x 1x 2x 1x 0x 1x 1x 1x 1x 2x 1/2x 1/2x 1x 1x 1/2x
+Psychic 1x 2x 1x 2x 1x 1x 1x 1x 1x 1x 1x 1x 1/2x 1x 1x
+Ice 1x 1x 2x 1x 2x 1x 1x 1x 1x 1/2x 2x 1x 1x 1/2x 2x
+Dragon 1x 1x 1x 1x 1x 1x 1x 1x 1x 1x 1x 1x 1x 1x 2x
