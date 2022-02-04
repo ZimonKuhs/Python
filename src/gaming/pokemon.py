@@ -93,6 +93,96 @@ def fromRawToStats(rawPath, outputPath):
 
         statFile.writelines(lines)
 
+def averageEncounterLevel(filePath):
+    lines = []
+
+    with open(filePath, encoding="utf-8") as contents:
+        lines = contents.readlines()
+
+    ratio = [int(number) for number in lines.pop(0).split()]
+    print(len(ratio))
+
+    amounts = {}
+    rates = {}
+    for line in lines:
+        parts = line.split()
+        name = parts.pop(0)
+        numbers = [int(part[1:]) for part in parts if part[1:].isdigit()]
+
+        rates[name] = rates[name] if name in rates else 0
+        amounts[name] = amounts[name] if name in amounts else 0
+        rates[name] += sum([ratio[index] * numbers[index] for index in range(0, len(ratio))]) / len(ratio)
+        amounts[name] += 1
+
+    result = {}
+    for key, value in rates.items():
+        result[key] = round(rates[key] / amounts[key])
+
+    return sorted(result.items(), key = lambda arg: arg[1], reverse = True)
+
+def countMoves(filePath):
+    lines = []
+
+    with open(filePath, encoding="utf-8") as contents:
+        lines = contents.readlines()
+
+    moves = {}
+    for line in lines:
+        if not line:
+            continue
+
+        parts = line.split()
+        for part in parts:
+            moves[part] = 1 if part not in moves else moves[part] + 1
+
+    sortedMoves = sorted(moves.items(), key = lambda arg: arg[1], reverse = True)
+    moves.clear()
+    for pair in sortedMoves:
+        moves[pair[0]] = pair[1]
+
+    return moves
+
+def statExp(base, level, stat, dv, hp = False):
+    const = level + 10 if hp else 5
+    return pow(8 * ((50 / level) * (stat - const) - base - dv), 2)
+
+def estimateStatExp(baseStats, level, stats, dvs=[0, 0, 0, 0, 0]):
+    lenBase, lenStats, lenDVs = len(baseStats), len(stats), len(dvs)
+
+    if lenBase != lenDVs or lenBase != lenStats:
+        raise ValueError(f"Amount of base stats, stats, and DVs are different! ({lenBase}, {lenStats}, {lenDVs})")
+
+    hp = True
+    result = []
+    for index in range(lenBase):
+        result.append(statExp(baseStats[index], level, stats[index], dvs[index], hp))
+        hp = False
+
+    return result
+
+def calculateStats(baseStats, level, dvs=[0, 0, 0, 0, 0]):
+    lenBase, lenDVs = len(baseStats), len(dvs)
+
+    if lenBase != lenDVs:
+        raise ValueError(f"Amount of stats different from amount of DVs! ({lenBase} and {lenDVs})")
+
+    result = []
+    for index in range(lenBase):
+        result.append(int(2 * level * (baseStats[index] + dvs[index]) / 100 + 5))
+    result[0] += level + 5
+
+    return result
+
+
 if __name__ == "__main__":
-    names, types = parseTypes("./src/gaming/types.txt")
-    print(TypeChart(names, types))
+    names = ["HP", "ATK", "DEF", "SPD", "SPC"]
+    #stats = estimateStatExp([40, 40, 35, 70, 100], 10, [31, 16, 15, 23, 28], [15, 15, 15, 15, 15])
+    tentacool = calculateStats([40, 40, 35, 70, 100], 7, dvs=[15, 15, 15, 15, 15])
+    tentacruel = calculateStats([80, 70, 65, 100, 120], 7, dvs=[15, 15, 15, 15, 15])
+
+    for index in range(5):
+        print(f"{names[index]}: {tentacruel[index] - tentacool[index]}")
+
+    #for move, amount in countMoves("src/gaming/euphoricMoves.txt").items():
+    #    print(f"{move}: {amount}")
+
