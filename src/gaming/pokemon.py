@@ -5,9 +5,11 @@
     @date   2021-11-14
 """
 
-import random
+import functools
 import os
 import sys
+
+from iniconfig import ParseError
 from typeChart import TypeChart
 
 class Pokemon:
@@ -26,10 +28,56 @@ class Pokemon:
         return round(100 * min ((8 if highCrit else 1) * self.speed / 2, 255) / 256, 2)
 
 
-class Table:
+class Finisher:
+
+    def __init__(self, name, time, level, moves, stats):
+        self.name       = str(name)
+        self.health     = int(stats[0])
+        self.attack     = int(stats[1])
+        self.defense    = int(stats[2])
+        self.speed      = int(stats[3])
+        self.special    = int(stats[4])
+        self.level      = int(level)
+        self.myMoves    = [str(move) for move in moves]
+
+        finish = time.split(":")
+        self.hours, self.minutes = int(finish[0]), int(finish[1])
+
+    def moves(self):
+        return [move for move in self.myMoves]
+
+
+def compareMoves(move1, move2):
+    count = move2[1] - move1[1]
+    if count != 0:
+        return count
+
+    cmp = 0
+    word1, word2 = move1[0], move2[0]
+    for index in range(min(len(word1), len(word2))):
+        cmp = ord(word1[index]) - ord(word2[index])
+
+        if cmp != 0:
+            return cmp
+
+    return 0
+
+
+class Euphoria:
 
     def __init__(self):
-        table = {}
+        self.table = {}
+
+    def add(self, name, order, time, level, moves, stats):
+        self.table[int(order)] = Finisher(name, time, level, moves, stats)
+
+    def countMoves(self):
+        result = {}
+        for _, pokemon in self.table.items():
+            for move in pokemon.moves():
+                result[move] = 1 + result[move] if move in result else 1
+
+        return {key: value for key, value in sorted(result.items(), key = functools.cmp_to_key(compareMoves))}
 
 
 def error(message, code=1):
@@ -120,27 +168,58 @@ def averageEncounterLevel(filePath):
 
     return sorted(result.items(), key = lambda arg: arg[1], reverse = True)
 
-def countMoves(filePath):
+def skipLine(line):
+    if line.lstrip()[0] == '#':
+        return True
+
+    count = 0
+    parts = line.split(",")
+    for part in parts:
+        if not part:
+            count += 1
+
+        if count > 3:
+            return True
+
+    return False
+
+def parseEuphoria(filePath):
+    """
+        Column 0:       Name
+        Column 1:       Order
+        Column 2:       Space
+        Column 3:       Time
+        Column 4:       Level
+        Column 5:       Space
+        Column 6-9:     Moves
+        Column 10       Space
+        Column 11-15:   Stats
+    """
+
     lines = []
 
     with open(filePath, encoding="utf-8") as contents:
         lines = contents.readlines()
 
-    moves = {}
+    expected = 16
+    lineNumber = 0
+    results = Euphoria()
+
     for line in lines:
-        if not line:
+        lineNumber += 1
+
+        if lineNumber < 3 or not line or skipLine(line):
             continue
 
-        parts = line.split()
+        parts = line.split(",")
+
+        if len(parts) != expected:
+            raise ParseError(f"Invalid format of line {lineNumber} (expected {expected} commas):\"\n\t{line}\n")
+
         for part in parts:
-            moves[part] = 1 if part not in moves else moves[part] + 1
+            results.add(parts[0], parts[1], parts[3], parts[4], parts[6:10], parts[11:16])
 
-    sortedMoves = sorted(moves.items(), key = lambda arg: arg[1], reverse = True)
-    moves.clear()
-    for pair in sortedMoves:
-        moves[pair[0]] = pair[1]
-
-    return moves
+    return results
 
 def statExp(base, level, stat, dv, hp = False):
     const = level + 10 if hp else 5
@@ -175,14 +254,6 @@ def calculateStats(baseStats, level, dvs=[0, 0, 0, 0, 0]):
 
 
 if __name__ == "__main__":
-    names = ["HP", "ATK", "DEF", "SPD", "SPC"]
-    #stats = estimateStatExp([40, 40, 35, 70, 100], 10, [31, 16, 15, 23, 28], [15, 15, 15, 15, 15])
-    tentacool = calculateStats([40, 40, 35, 70, 100], 7, dvs=[15, 15, 15, 15, 15])
-    tentacruel = calculateStats([80, 70, 65, 100, 120], 7, dvs=[15, 15, 15, 15, 15])
-
-    for index in range(5):
-        print(f"{names[index]}: {tentacruel[index] - tentacool[index]}")
-
-    #for move, amount in countMoves("src/gaming/euphoricMoves.txt").items():
-    #    print(f"{move}: {amount}")
+    for move, amount in parseEuphoria("src/gaming/data/Euphoria results - Sheet1.csv").countMoves().items():
+        print(f"{move}: {amount}")
 
