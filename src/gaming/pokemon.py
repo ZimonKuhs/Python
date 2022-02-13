@@ -7,10 +7,10 @@
 
 import functools
 import os
+from random import randint
 import sys
 
 from iniconfig import ParseError
-from typeChart import TypeChart
 
 class Pokemon:
 
@@ -31,20 +31,29 @@ class Pokemon:
 class Finisher:
 
     def __init__(self, name, time, level, moves, stats):
-        self.name       = str(name)
+        self.species    = str(name)
         self.health     = int(stats[0])
         self.attack     = int(stats[1])
         self.defense    = int(stats[2])
         self.speed      = int(stats[3])
         self.special    = int(stats[4])
-        self.level      = int(level)
+        self.lvl        = int(level)
         self.myMoves    = [str(move) for move in moves]
 
         finish = time.split(":")
-        self.hours, self.minutes = int(finish[0]), int(finish[1])
+        self.hour, self.min = int(finish[0]), int(finish[1])
+
+    def name(self):
+        return self.species
+
+    def level(self):
+        return self.lvl
 
     def moves(self):
         return [move for move in self.myMoves]
+
+    def minutes(self):
+        return self.hour * 60 + self.min
 
 
 def compareMoves(move1, move2):
@@ -67,9 +76,31 @@ class Euphoria:
 
     def __init__(self):
         self.table = {}
+        self.fast = None
+        self.high = None
+        self.low  = None
+        self.slow = None
+
 
     def add(self, name, order, time, level, moves, stats):
-        self.table[int(order)] = Finisher(name, time, level, moves, stats)
+        finisher = Finisher(name, time, level, moves, stats)
+        self.table[int(order)] = finisher
+
+        if len(self.table) <= 1:
+            self.fast = self.high = self.low = self.slow = finisher
+            return
+
+        duration = finisher.minutes()
+        if duration < self.fast.minutes():
+            self.fast = finisher
+        elif duration > self.slow.minutes():
+            self.slow = finisher
+
+        lvl = int(level)
+        if lvl < self.low.level():
+            self.low = finisher
+        elif lvl > self.high.level():
+            self.high = finisher
 
     def countMoves(self):
         result = {}
@@ -78,6 +109,18 @@ class Euphoria:
                 result[move] = 1 + result[move] if move in result else 1
 
         return {key: value for key, value in sorted(result.items(), key = functools.cmp_to_key(compareMoves))}
+
+    def fastest(self):
+        return self.fast
+
+    def highest(self):
+        return self.high
+
+    def lowest(self):
+        return self.low
+
+    def slowest(self):
+        return self.slow
 
 
 def error(message, code=1):
@@ -216,8 +259,7 @@ def parseEuphoria(filePath):
         if len(parts) != expected:
             raise ParseError(f"Invalid format of line {lineNumber} (expected {expected} commas):\"\n\t{line}\n")
 
-        for part in parts:
-            results.add(parts[0], parts[1], parts[3], parts[4], parts[6:10], parts[11:16])
+        results.add(parts[0], parts[1], parts[3], parts[4], parts[6:10], parts[11:16])
 
     return results
 
@@ -253,7 +295,63 @@ def calculateStats(baseStats, level, dvs=[0, 0, 0, 0, 0]):
     return result
 
 
+def burpTypeEnum():
+    string = "NONE,BUG,DRAGON,ELECTRIC,FIGHTING,FIRE,FLYING,GHOST,GRASS,GROUND,ICE,NORMAL,POISON,PSYCHIC,ROCK,WATER"
+
+    parts = string.split(",")
+    print("{")
+    for part in parts:
+        print(f"    {{ \"{part}\", {part} }},")
+    print("};")
+    return True
+
+def pad(string, length):
+    return string + " " * max(length - len(string), 0)
+
+def burpNameListEnum():
+    string = "NONE,BUG,DRAGON,ELECTRIC,FIGHTING,FIRE,FLYING,GHOST,GRASS,GROUND,ICE,NORMAL,POISON,PSYCHIC,ROCK,WATER"
+
+    parts = string.split(",")
+    length = max([len(part) for part in parts])
+
+    for part in parts:
+        print(f"{pad(part, length)} = Type(\"{part}\")")
+
+    return True
+
+def nextChallenge(filePath):
+    lines = None
+    with open(csvFile, "r", encoding="utf-8") as content:
+        lines = content.readlines()
+
+    names = []
+    for line in lines:
+        parts = line.split(",")
+
+        if parts[1]:
+            continue
+
+        names.append(parts[0])
+
+    return names[randint(0, len(names))]
+
 if __name__ == "__main__":
-    for move, amount in parseEuphoria("src/gaming/data/Euphoria results - Sheet1.csv").countMoves().items():
-        print(f"{move}: {amount}")
+
+    arg = sys.argv[1]
+    csvFile = "src/gaming/data/Euphoria results - Sheet1.csv"
+
+    if arg == "--records":
+        euphoria = parseEuphoria(csvFile)
+
+        print(f"Low:  {euphoria.lowest().name()}")
+        print(f"High: {euphoria.highest().name()}")
+        print(f"Fast: {euphoria.fastest().name()}")
+        print(f"Slow: {euphoria.slowest().name()}")
+
+    elif arg == "--moveCount":
+        for move, amount in parseEuphoria(csvFile).countMoves().items():
+            print(f"{move}: {amount}")
+
+    elif arg == "--next":
+        print(nextChallenge(csvFile))
 

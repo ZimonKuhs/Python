@@ -1,3 +1,46 @@
+class Type:
+    def __init__(self, name):
+        self.name = name
+
+    def name(self):
+        return self.name
+
+NONE     = Type("NONE")
+BUG      = Type("BUG")
+DRAGON   = Type("DRAGON")
+ELECTRIC = Type("ELECTRIC")
+FIGHTING = Type("FIGHTING")
+FIRE     = Type("FIRE")
+FLYING   = Type("FLYING")
+GHOST    = Type("GHOST")
+GRASS    = Type("GRASS")
+GROUND   = Type("GROUND")
+ICE      = Type("ICE")
+NORMAL   = Type("NORMAL")
+POISON   = Type("POISON")
+PSYCHIC  = Type("PSYCHIC")
+ROCK     = Type("ROCK")
+WATER    = Type("WATER")
+
+types = {
+    { "NONE",     NONE },
+    { "BUG",      BUG },
+    { "DRAGON",   DRAGON },
+    { "ELECTRIC", ELECTRIC },
+    { "FIGHTING", FIGHTING },
+    { "FIRE",     FIRE },
+    { "FLYING",   FLYING },
+    { "GHOST",    GHOST },
+    { "GRASS",    GRASS },
+    { "GROUND",   GROUND },
+    { "ICE",      ICE },
+    { "NORMAL",   NORMAL },
+    { "POISON",   POISON },
+    { "PSYCHIC",  PSYCHIC },
+    { "ROCK",     ROCK },
+    { "WATER",    WATER },
+}
+
 def equalizeLength(strings):
     result = []
     length = max([len(string) for string in strings])
