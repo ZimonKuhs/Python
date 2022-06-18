@@ -1,0 +1,34 @@
+# As copied by selecting it on doomwiki.org and then pasted raw here.
+
+MAP01: Outpost by Denis Möller
+MAP02: The Feeding Pit by David Davidson
+MAP03: ...And Hell Beneath by Matthias Worch
+MAP04: Ratamahatta by Florian Helmberger
+MAP05: Rites of Passage by Paul Noble
+MAP06: Trapped by Adam Williamson
+MAP07: Frustration by David Kuykendall
+MAP08: Stigmata by Denis Möller
+MAP09: Sabbath Sewer by Mark Klem
+MAP10: Clear for Death by Matthias Worch
+MAP11: Sewer Shutdown by Eric Sargent
+MAP12: The Waterway by Orin Flaharty
+MAP13: Devils Paradise by Rhys Hughes
+MAP14: A Question of Time by Matthias Worch and Thomas Möller
+MAP15: The Devil's Coterie by Adam Windsor
+MAP16: The Nephilim by Denis Möller
+MAP17: No One by Michael Rapp
+MAP18: Regulate by Matthias Worch
+MAP19: The Shaft by Jeremy Statz
+MAP20: The Experiment by Alden Bates
+MAP21: Sanctuary by Andy Badorek
+MAP22: R.R.F. Refinary by Thomas Möller
+MAP23: No Way Out by Eric Sargent
+MAP24: Io Lab by Sean Birkel
+MAP25: Forgotten Town by Denis Möller
+MAP26: Base Exposure by Mark Klem
+MAP27: The Silos by Paul Noble
+MAP28: Corporate Hell by Stephen Watson
+MAP29: Kings of Metal by Jens Nielsen
+MAP30: It by Jim Wraith
+MAP31: DejaVu by Orin Flaharty
+MAP32: Dances with Demons by David Kuykendall

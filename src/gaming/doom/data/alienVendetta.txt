@@ -1,0 +1,34 @@
+# As copied by selecting it on doomwiki.org and then pasted raw here.
+
+MAP01: Sunset by Martin Aalen Hunsager
+MAP02: Rusty Rage by Anders Johnsen
+MAP03: Cargo Depot by Mattias Berggren and Kim André Malde
+MAP04: Seclusion by Mattias Berggren
+MAP05: Crimson Tide by Anders Johnsen
+MAP06: Hillside Siege by Lee Szymanski and Anthony Soto
+MAP07: Showdown by Anders Johnsen
+MAP08: Beast Island by Jan Endre Jansen and Anders Johnsen
+MAP09: Castle Gardens by Kim André Malde
+MAP10: Toxic Touch by Kim André Malde
+MAP11: Nemesis by Martin Aalen Hunsager
+MAP12: Entropy by Adam Windsor (the first few rooms) and Brad Spencer
+MAP13: Suicidal Tendencies by Brad Spencer
+MAP14: Overwhelming Odds by Brad Spencer
+MAP15: Bulls on Parade by Madani el Hariri with parts edited by Yashar Garibzadeh, Anthony Soto and Anders Johnsen
+MAP16: Mutual Destruction by Brad Spencer
+MAP17: Nukefall by Anders Johnsen
+MAP18: Lake Poison by Anders Johnsen
+MAP19: Alien Resurrection by Madani el Hariri
+MAP20: Misri Halek by Kim André Malde
+MAP21: One Flew Over The Caco's Nest by Pablo Dictter
+MAP22: Rubicon by Brad Spencer
+MAP23: Blood Sacrifice by Kim André Malde
+MAP24: Clandestine Complex by Lee Szymanski and Anthony Soto
+MAP25: Demonic Hordes by Vincent Catalaá and Sam Woodman
+MAP26: Dark Dome by Anders Johnsen
+MAP27: Stench of Evil by Anders Johnsen and Jan Endre Jansen
+MAP28: Whispering Shadows by Anders Johnsen
+MAP29: Fire Walk With Me by Anders Johnsen
+MAP30: Point Dreadful by Anders Johnsen (DM part by Kim André Malde)
+MAP31: Killer Colours by Yashar Garibzadeh and Kristian Käll
+MAP32: No Guts No Glory by Anders Johnsen

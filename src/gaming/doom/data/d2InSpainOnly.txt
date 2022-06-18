@@ -1,0 +1,32 @@
+MAP01: Entrada by Richard Frei (Tarnsman) as El Pedersen
+MAP02: Salas de debajo by Richard Frei (Tarnsman) as El Pedersen
+MAP03: Las vías del tren by Gus Knezevich (Alfonzo) and Richard Frei (Tarnsman) as South American McGee
+MAP04: El foco by Gus Knezevich (Alfonzo) as Sal Verde
+MAP05: Los túneles de residuos by Richard Frei (Tarnsman) as South American McGee
+MAP06: La trituradora by Richard Frei (Tarnsman) as South American McGee
+MAP07: Fácil de muertos by Richard Frei (Tarnsman) as El Pedersen
+MAP08: Trucos y trampas by Gus Knezevich (Alfonzo) and Richard Frei (Tarnsman) as Sal Verde
+MAP09: El pozo by Richard Frei (Tarnsman) as El Pedersen
+MAP10: Base de reabastecimiento by Brayden Hart (AD_79) as Juan Romero
+MAP11: Círculo de la muerte by Richard Frei (Tarnsman) as El Pedersen
+MAP12: La fábrica by Sarah Mancuso (esselfortium) and Richard Frei (Tarnsman) as Juan Romero
+MAP13: Centro de la ciudad by Brayden Hart (AD_79) as Juan Romero
+MAP14: Los antros más íntimos by James Paddock (Jimmy) as South American McGee
+MAP15: Zona de la industria by Sarah Mancuso (esselfortium) and Richard Frei (Tarnsman) as El Pedersen
+MAP16: Afueras by Richard Frei (Tarnsman) as South American McGee
+MAP17: Viviendas by Richard Frei (Tarnsman) as Drug Shuttle[3]
+MAP18: La corte de yardas by Justin Kelly (Breezeep) and Richard Frei (Tarnsman) as Drug Shuttle
+MAP19: La ciudadela by Richard Frei (Tarnsman) as El Pedersen
+MAP20: ¡Te tengo ahora! by Richard Frei (Tarnsman) as South American McGee
+MAP21: Estado trascendente by Richard Frei (Tarnsman) as El Pedersen
+MAP22: Las catacumbas by Justin Kelly (Breezeep) and Richard Frei (Tarnsman) as South American McGee
+MAP23: Barriles de diversión by Richard Frei (Tarnsman) as El Pedersen
+MAP24: El abismo by Richard Frei (Tarnsman) as El Pedersen
+MAP25: Cataratas de sangre by Richard Frei (Tarnsman) as El Pedersen
+MAP26: Las minas abandonadas by Richard Frei (Tarnsman) and Brayden Hart (AD_79) as Juan Romero
+MAP27: Monstruo condominio by Richard Frei (Tarnsman) and Justin Kelly (Breezeep) as Drug Shuttle
+MAP28: El mundo de los espíritus by Sarah Mancuso (esselfortium) and Richard Frei (Tarnsman) as Tomás Pasillo
+MAP29: El extremo vivo by Sarah Mancuso (esselfortium) and Richard Frei (Tarnsman) as Juan Romero
+MAP30: Icono del pecado by Richard Frei (Tarnsman) as El Pedersen†
+MAP31: Zona secreta by Justin Kelly (Breezeep) and Richard Frei (Tarnsman) as Drug Shuttle
+MAP32: Hotel California by Richard Frei (Tarnsman) as Sal Verde
