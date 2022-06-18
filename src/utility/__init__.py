@@ -7,8 +7,10 @@
     @date:    2021-07-08.
 """
 
+import getopt
 import os
 import random
+import sys
 
 ALPHA = [chr(i) for i in range(128)
          if i > 65 and i < 91 or i > 97 and i < 122]
