@@ -222,7 +222,11 @@ if __name__ == "__main__":
     }
     additional = []
 
-    rootDir = os.path.join("D:\Gaming", "DOOM")
+    doomDir = os.getenv("DOOM_ROOT")
+    dsdaDir = os.getenv("DSDA_ROOT")
+
+    if not os.path.exists(doomDir) or not os.path.exists(dsdaDir):
+        raise ValueError("DOOM_ROOT and DSDA_ROOT must be set to existing directories!")
 
     category = "UV-Fast"
     level = "01"
@@ -261,7 +265,7 @@ if __name__ == "__main__":
     mode, skill, flags = categorize(category)
 
     outFile = f"{code}{number}{mode}-MMSS"
-    outDir = os.path.join(rootDir, "demo", iwad, category, "map" + level if len(level) == 2 else level)
+    outDir = os.path.join(doomDir, "demo", iwad, category, "map" + level if len(level) == 2 else level)
     outPath = os.path.join(outDir, f"{outFile}.lmp")
 
     os.makedirs(outDir, exist_ok = True)
@@ -269,16 +273,16 @@ if __name__ == "__main__":
     for flag in flags:
         additional.append(flag)
 
-    config["iwad"] = findIWAD(rootDir, code)
+    config["iwad"] = findIWAD(doomDir, code)
     config["complevel"] = comp
     config["record"] = outPath
     config["skill"] = str(skill)
     config["warp"] = f"{number[1]} {number[3]}" if d1 else number[-2:]
 
     if pwad:
-        config["file"] = findPWAD(rootDir, code)
+        config["file"] = findPWAD(doomDir, code)
 
-    command = f"{os.path.join(rootDir, 'dsda', 'dsda-doom.exe')}"
+    command = f"{os.path.join(doomDir, 'dsda', 'dsda-doom.exe')}"
     for key, value in config.items():
         if key and value:
             command = f"{command} -{key} {value}"
