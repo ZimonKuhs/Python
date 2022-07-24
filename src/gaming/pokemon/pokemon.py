@@ -122,6 +122,11 @@ class Euphoria:
     def slowest(self):
         return self.slow
 
+    def names(self):
+        result = [pokemon.name() for _, pokemon in self.table.items()]
+        result.sort()
+        return result
+
 
 def error(message, code=1):
     if code <= 0:
@@ -251,7 +256,7 @@ def parseEuphoria(filePath):
     for line in lines:
         lineNumber += 1
 
-        if lineNumber < 3 or not line or skipLine(line):
+        if lineNumber < 2 or not line or skipLine(line):
             continue
 
         parts = line.split(",")
@@ -350,18 +355,15 @@ if __name__ == "__main__":
 
     elif arg == "--moveCount":
         counts = parseEuphoria(csvFile).countMoves()
-        longest = ""
-
-        for move, _ in counts.items():
-            if len(move) > len(longest):
-                longest = move
-        chars = len(longest)
-        print(chars)
+        chars = max([len(move) for move, _ in counts.items()])
 
         for move, amount in counts.items():
-            padding = " " * (chars - len(move) + 1)
-            print(f"{move}:{padding}{amount}")
+            padding = " " * (chars - len(move) + 5)
+            print(f"{move}{padding}{amount}")
 
     elif arg == "--next":
         print(nextChallenge(csvFile))
 
+    elif arg == "--finishers":
+        for mon in parseEuphoria(csvFile).names():
+            print(mon)
