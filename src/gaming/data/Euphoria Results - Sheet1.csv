@@ -1,14 +1,14 @@
 :),Order,,Time,Level,,Move 1,Move 2,Move 3,Move 4,,Health,Attack,Defense,Speed,Special
 Venusaur,1,,4:04,64,,Body Slam,Mega Drain,Growth,Sleep Powder,,220,153,152,153,179
-Charizard,,,,,,,,,,,,,,,
+Charizard,14,,3:51,64,,Body Slam,Flamethrower,Earthquake,Swords Dance,,219,156,145,179,159
 Blastoise,,,,,,,,,,,,,,,
 Butterfree,,,,,,,,,,,,,,,
 Beedrill,,,,,,,,,,,,,,,
 Pidgeot,,,,,,,,,,,,,,,
-Raticate,,,,,,,,,,,,,,,
+Raticate,13,,4:01,64,,Body Slam,Dig,Ice Beam,Thunderbolt,,190,154,128,174,114
 Fearow,,,,,,,,,,,,,,,
 Arbok,,,,,,,,,,,,,,,
-Raichu,,,,,,,,,,,,,,,
+Raichu,12,,4:54,63,,Body Slam,Thunderbolt,Seismic Toss,Agility,,193,163,120,176,164
 Sandslash,,,,,,,,,,,,,,,
 Nidoqueen,,,,,,,,,,,,,,,
 Nidoking,,,,,,,,,,,,,,,
@@ -40,7 +40,7 @@ Muk,,,,,,,,,,,,,,,
 Cloyster,,,,,,,,,,,,,,,
 Gengar,5,,3:35,63,,Psychic,Night Shade,Thunderbolt,Confuse Ray,,193,126,122,188,214
 Onix,,,,,,,,,,,,,,,
-Hypno,,,,,,,,,,,,,,,
+Hypno,15,,,,,,,,,,,,,,
 Kingler,,,,,,,,,,,,,,,
 Electrode,,,,,,,,,,,,,,,
 Exeggutor,,,,,,,,,,,,,,,

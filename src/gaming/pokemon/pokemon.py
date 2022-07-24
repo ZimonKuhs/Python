@@ -349,8 +349,18 @@ if __name__ == "__main__":
         print(f"Slow: {euphoria.slowest().name()}")
 
     elif arg == "--moveCount":
-        for move, amount in parseEuphoria(csvFile).countMoves().items():
-            print(f"{move}: {amount}")
+        counts = parseEuphoria(csvFile).countMoves()
+        longest = ""
+
+        for move, _ in counts.items():
+            if len(move) > len(longest):
+                longest = move
+        chars = len(longest)
+        print(chars)
+
+        for move, amount in counts.items():
+            padding = " " * (chars - len(move) + 1)
+            print(f"{move}:{padding}{amount}")
 
     elif arg == "--next":
         print(nextChallenge(csvFile))
