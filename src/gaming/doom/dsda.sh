@@ -13,7 +13,7 @@ fail() {
 
 
 here="$(dirname "$(realpath "$0")")"
-file="$(basename "$here")"
+file="$(basename "$0")"
 name="${file%.*}"
 script="$here/$name.py"
 

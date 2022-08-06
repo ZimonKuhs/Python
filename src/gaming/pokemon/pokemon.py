@@ -367,3 +367,31 @@ if __name__ == "__main__":
     elif arg == "--finishers":
         for mon in parseEuphoria(csvFile).names():
             print(mon)
+
+    elif arg == "--types":
+        import typeChart
+        results = {}
+
+        for mon in parseEuphoria(csvFile).names():
+            types = typeChart.getTypes(mon)
+            typeName = (types[0]).name()
+            results[typeName] = 1 if typeName not in results else results[typeName] + 1
+
+            if types[1] is not typeChart.NONE:
+                typeName = types[1].name()
+                results[typeName] = 1 if typeName not in results else results[typeName] + 1
+
+        for name, _ in typeChart.types.items():
+            if name not in results and name != "NONE":
+                results[name] = 0
+
+        sorted = {}
+        keys = [key for key in results.keys()]
+        keys.sort()
+
+        for key in keys:
+            sorted[key] = results[key]
+
+        for name, amount in sorted.items():
+            padding = " " * (len(typeChart.ELECTRIC.name()) - len(name) + 1)
+            print(f"{name}:{padding}{amount}")

@@ -29,7 +29,7 @@ Alakazam,6,,4:52,62,,Psychic,Body Slam,Psybeam,Recover,,184,112,101,198,217
 Machamp,,,,,,,,,,,,,,,
 Victreebel,,,,,,,,,,,,,,,
 Tentacruel,10,,4:32,60,,Double-Edge,Surf,Ice Beam,Barrier,,209,132,125,168,192
-Golem,,,,,,,,,,,,,,,
+Golem,15,,4:42,64,,Body Slam,Earthquake,Rock Slide,Defense Curl,,222,192,218,108,120
 Rapidash,,,,,,,,,,,,,,,
 Slowbro,,,,,,,,,,,,,,,
 Magneton,,,,,,,,,,,,,,,
@@ -40,7 +40,7 @@ Muk,,,,,,,,,,,,,,,
 Cloyster,,,,,,,,,,,,,,,
 Gengar,5,,3:35,63,,Psychic,Night Shade,Thunderbolt,Confuse Ray,,193,126,122,188,214
 Onix,,,,,,,,,,,,,,,
-Hypno,15,,,,,,,,,,,,,,
+Hypno,,,,,,,,,,,,,,,
 Kingler,,,,,,,,,,,,,,,
 Electrode,,,,,,,,,,,,,,,
 Exeggutor,,,,,,,,,,,,,,,
@@ -73,10 +73,12 @@ Porygon,,,,,,,,,,,,,,,
 Omastar,,,,,,,,,,,,,,,
 Kabutops,,,,,,,,,,,,,,,
 Aerodactyl,7,,4:03,59,,Hyper Beam,Fly,Fire Blast,Agility,,205,171,123,200,118
-Snorlax,,,,,,,,,,,,,,,
+Snorlax,16,,3:58,59,,Hyper Beam,Ice Beam,Earthquake,Amnesia,,300,177,122,79,124
 Articuno,3,,3:01,58,,Double-Edge,Blizzard,Agility,Mimic,,208,142,156,142,189
 Zapdos,9,,3:12,59,,Drill Peck,Thunderbolt,Agility,Mimic,,217,153,144,165,194
 Moltres,,,,,,,,,,,,,,,
 Dragonite,8,,5:20,65,,Hyper Beam,Thunderbolt,Ice Beam,Agility,,240,227,175,157,163
 Mew,,,,,,,,,,,,,,,
 Mewtwo,2,,3:02,59,,Body Slam,Ice Beam,Thunderbolt,Psychic,,234,177,151,200,228
+,,,,,,,,,,,,,,,
+Completion:,19.80%,,,,,,,,,,,,,,

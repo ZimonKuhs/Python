@@ -1,9 +1,9 @@
 class Type:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, myName):
+        self.myName = myName
 
     def name(self):
-        return self.name
+        return self.myName
 
 NONE     = Type("NONE")
 BUG      = Type("BUG")
@@ -23,23 +23,45 @@ ROCK     = Type("ROCK")
 WATER    = Type("WATER")
 
 types = {
-    { "NONE",     NONE },
-    { "BUG",      BUG },
-    { "DRAGON",   DRAGON },
-    { "ELECTRIC", ELECTRIC },
-    { "FIGHTING", FIGHTING },
-    { "FIRE",     FIRE },
-    { "FLYING",   FLYING },
-    { "GHOST",    GHOST },
-    { "GRASS",    GRASS },
-    { "GROUND",   GROUND },
-    { "ICE",      ICE },
-    { "NORMAL",   NORMAL },
-    { "POISON",   POISON },
-    { "PSYCHIC",  PSYCHIC },
-    { "ROCK",     ROCK },
-    { "WATER",    WATER },
+    "NONE"      : NONE,
+    "BUG"       : BUG,
+    "DRAGON"    : DRAGON,
+    "ELECTRIC"  : ELECTRIC,
+    "FIGHTING"  : FIGHTING,
+    "FIRE"      : FIRE,
+    "FLYING"    : FLYING,
+    "GHOST"     : GHOST,
+    "GRASS"     : GRASS,
+    "GROUND"    : GROUND,
+    "ICE"       : ICE,
+    "NORMAL"    : NORMAL,
+    "POISON"    : POISON,
+    "PSYCHIC"   : PSYCHIC,
+    "ROCK"      : ROCK,
+    "WATER"     : WATER,
 }
+
+pokemon = {
+    "Aerodactyl" : ( ROCK,     FLYING ),
+    "Alakazam"   : ( PSYCHIC,  NONE ),
+    "Arcanine"   : ( FIRE,     NONE ),
+    "Articuno"   : ( ICE,      FLYING ),
+    "Chansey"    : ( NORMAL,   NONE ),
+    "Charizard"  : ( FIRE,     FLYING ),
+    "Dragonite"  : ( DRAGON,   FLYING ),
+    "Gengar"     : ( GHOST,    POISON ),
+    "Golem"      : ( ROCK,     GROUND ),
+    "Mewtwo"     : ( PSYCHIC,  NONE ),
+    "Raichu"     : ( ELECTRIC, NONE ),
+    "Raticate"   : ( NORMAL,   NONE ),
+    "Snorlax"    : ( NORMAL,   NONE ),
+    "Tentacruel" : ( WATER,    POISON ),
+    "Venusaur"   : ( GRASS,    POISON ),
+    "Zapdos"     : ( ELECTRIC, FLYING ),
+}
+
+def getTypes(name):
+    return pokemon[name]
 
 def equalizeLength(strings):
     result = []
